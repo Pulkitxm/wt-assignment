@@ -1,0 +1,29 @@
+.username{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+label{
+    font-size: larger;
+    font-family: cursive;
+}
+.display{
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.content{
+    border: solid 2px ;
+    border-radius:12%;
+    height: 500px;
+    width: 400px;
+    background-color:#111924;
+}
+.main{
+    background-color:#f8ee00;
+    
+}
+img{
+    border: 1px solid ;
+    border-radius: 50%;
+}

@@ -1,0 +1,32 @@
+.nav-link{
+    color:white;
+}
+.nav-link:hover{
+    color:black;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+}
+.main-image{
+    border: 1px solid white;
+    height: 70vh;
+    width: 40vw;
+    object-fit: cover;
+    padding: 5px;
+}
+img{
+    width: 35vw; 
+    height: minmax(300px, 400px);
+}
+.btn{
+    color: white;
+}
+.btn:hover{
+    color:black;
+}
+.content{
+    font-size:xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
