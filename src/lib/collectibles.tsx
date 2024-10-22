@@ -1,9 +1,9 @@
-import { Category, PRODUCT } from "../types/product";
-import img1 from "../assets/collectibles/81f1jhRE6FL._SL1500_.png";
-import img2 from "../assets/collectibles/71a1BV-S37L._SL1500_.png";
-import img3 from "../assets/collectibles/41uoBWzjFvL.png";
-import img4 from "../assets/collectibles/51cTsQp0jIL._SL1280_.png";
-import img5 from "../assets/collectibles/51ktnFFL8FL.png";
+import { Category, PRODUCT } from "@/types/product";
+import img1 from "@/assets/collectibles/81f1jhRE6FL._SL1500_.png";
+import img2 from "@/assets/collectibles/71a1BV-S37L._SL1500_.png";
+import img3 from "@/assets/collectibles/41uoBWzjFvL.png";
+import img4 from "@/assets/collectibles/51cTsQp0jIL._SL1280_.png";
+import img5 from "@/assets/collectibles/51ktnFFL8FL.png";
 
 const collectibleItems: Omit<PRODUCT, "category">[] = [
   {

@@ -1,9 +1,9 @@
-import { Category, PRODUCT } from "../types/product";
-import img1 from "../assets/jewelery/51bKD0GEChL._SY625_.png";
-import img2 from "../assets/jewelery/71wuD8IzqtL._SL1500_.png";
-import img3 from "../assets/jewelery/81WZQlUV40L._SY625_.png";
-import img4 from "../assets/jewelery/61DJZr11BUL._SY625_.png";
-import img5 from "../assets/jewelery/51vkUXs47GL._SL1000_.png";
+import { Category, PRODUCT } from "@/types/product";
+import img1 from "@/assets/jewelery/51bKD0GEChL._SY625_.png";
+import img2 from "@/assets/jewelery/71wuD8IzqtL._SL1500_.png";
+import img3 from "@/assets/jewelery/81WZQlUV40L._SY625_.png";
+import img4 from "@/assets/jewelery/61DJZr11BUL._SY625_.png";
+import img5 from "@/assets/jewelery/51vkUXs47GL._SL1000_.png";
 
 const jeweleryItems: Omit<PRODUCT, "category">[] = [
   {

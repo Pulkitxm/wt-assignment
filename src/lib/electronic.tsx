@@ -1,9 +1,9 @@
-import { Category, PRODUCT } from "../types/product";
-import img1 from "../assets/electronics/61sjfVAHnSL._SL1500_.png";
-import img2 from "../assets/electronics/61z8qgRCtNL._SL1500_.png";
-import img3 from "../assets/electronics/613jbjQTn8L._SL1500_.png";
-import img4 from "../assets/electronics/61CYV-pyToL._SL1500_.png";
-import img5 from "../assets/electronics/51BmSwjFu5L._SL1281_.png";
+import { Category, PRODUCT } from "@/types/product";
+import img1 from "@/assets/electronics/61sjfVAHnSL._SL1500_.png";
+import img2 from "@/assets/electronics/61z8qgRCtNL._SL1500_.png";
+import img3 from "@/assets/electronics/613jbjQTn8L._SL1500_.png";
+import img4 from "@/assets/electronics/61CYV-pyToL._SL1500_.png";
+import img5 from "@/assets/electronics/51BmSwjFu5L._SL1281_.png";
 
 const electronicItems: Omit<PRODUCT, "category">[] = [
   {

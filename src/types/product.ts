@@ -1,4 +1,5 @@
 export enum Category {
+  ALL = "All",
   Electronics = "Electronics",
   Furniture = "Furniture",
   GardenAndOutDoors = "Garden & Outdoors",

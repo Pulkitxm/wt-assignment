@@ -1,9 +1,9 @@
-import { Category, PRODUCT } from "../types/product";
-import img1 from "../assets/garden/61k26PaYxML._SL1500_.png";
-import img2 from "../assets/garden/61BTe9uJ6jL._SL1500_.png";
-import img3 from "../assets/garden/61TFqvazyyL._SL1500_.png";
-import img4 from "../assets/garden/616unjVbf4L._SL1500_.png";
-import img5 from "../assets/garden/51u7qh38-bL._SL1000_.png";
+import { Category, PRODUCT } from "@/types/product";
+import img1 from "@/assets/garden/61k26PaYxML._SL1500_.png";
+import img2 from "@/assets/garden/61BTe9uJ6jL._SL1500_.png";
+import img3 from "@/assets/garden/61TFqvazyyL._SL1500_.png";
+import img4 from "@/assets/garden/616unjVbf4L._SL1500_.png";
+import img5 from "@/assets/garden/51u7qh38-bL._SL1000_.png";
 
 const gardenAndOutdoorsItems: Omit<PRODUCT, "category">[] = [
   {

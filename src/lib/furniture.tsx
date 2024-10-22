@@ -1,9 +1,9 @@
-import { Category, PRODUCT } from "../types/product";
-import img1 from "../assets/furniture/716eVbI8IBL._SL1500_.png";
-import img2 from "../assets/furniture/71Q1Z2kUbhL._SL1500_.png";
-import img3 from "../assets/furniture/81dl6Wx3LYL._SL1500_.png";
-import img4 from "../assets/furniture/81Sllf6C25L._SL1500_.png";
-import img5 from "../assets/furniture/71BH74yEG7L._SL1210_.png";
+import { Category, PRODUCT } from "@/types/product";
+import img1 from "@/assets/furniture/716eVbI8IBL._SL1500_.png";
+import img2 from "@/assets/furniture/71Q1Z2kUbhL._SL1500_.png";
+import img3 from "@/assets/furniture/81dl6Wx3LYL._SL1500_.png";
+import img4 from "@/assets/furniture/81Sllf6C25L._SL1500_.png";
+import img5 from "@/assets/furniture/71BH74yEG7L._SL1210_.png";
 
 const furnitureItems: Omit<PRODUCT, "category">[] = [
   {

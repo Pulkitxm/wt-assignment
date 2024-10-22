@@ -1,4 +1,4 @@
-import { PRODUCT } from "../types/product";
+import { PRODUCT } from "@/types/product";
 import CollectibleItems from "./collectibles";
 import ElectronicItems from "./electronic";
 import FurnitureItems from "./furniture";
