@@ -7,6 +7,7 @@ import img5 from "@/assets/electronics/51BmSwjFu5L._SL1281_.png";
 
 const electronicItems: Omit<PRODUCT, "category">[] = [
   {
+    id: "bf676bf3-9859-455b-aa7a-b0226c9ed592",
     title: "Magic Style Keyboard for iPad Air 11",
     price: 8295,
     rating: 4.3,
@@ -14,6 +15,7 @@ const electronicItems: Omit<PRODUCT, "category">[] = [
     link: "https://amzn.in/d/31oKonZ",
   },
   {
+    id: "f0e52e71-8aa5-4c16-849f-a42b613a5dd3",
     title: "Combo Touch Detachable 10Th Gen Ipad Keyboard Case",
     price: 11999,
     rating: 3.9,
@@ -21,6 +23,7 @@ const electronicItems: Omit<PRODUCT, "category">[] = [
     link: "https://amzn.in/d/8uEPebl",
   },
   {
+    id: "26f854ab-4196-4bd2-8104-7a0cc8b8db0b",
     title: "Kingone Upgraded Stylus",
     price: 1339,
     image: img3,
@@ -28,6 +31,7 @@ const electronicItems: Omit<PRODUCT, "category">[] = [
     rating: 4.1,
   },
   {
+    id: "585c2674-aca0-41fa-8a78-a677cc72cffd",
     title: "Wacom CTL-472/K0-CX Digital Drawing Graphics Pen Tablet",
     price: 2890,
     rating: 4.3,
@@ -35,6 +39,7 @@ const electronicItems: Omit<PRODUCT, "category">[] = [
     link: "https://amzn.in/d/gBvhO3F",
   },
   {
+    id: "ce8ef759-e3ef-45da-9a76-e4a17c880ae0",
     title: "Logitech C270 Digital HD Webcam with Widescreen",
     rating: 4.3,
     price: 1749,

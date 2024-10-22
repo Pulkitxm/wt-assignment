@@ -4,10 +4,11 @@ export enum Category {
   Furniture = "Furniture",
   GardenAndOutDoors = "Garden & Outdoors",
   Collectibles = "Collectibles",
-  Jewelery = "Jewelery"
+  Jewelery = "Jewelery",
 }
 
 export type PRODUCT = {
+  id: string;
   title: string;
   price: number;
   rating?: number;

@@ -1,36 +1,52 @@
-import { useState } from "react"
-import { Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useCallback, useEffect, useState } from "react";
+import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Category, PRODUCT } from "@/types/product"
-import { default as baseProducts } from "@/lib/data"
+} from "@/components/ui/select";
+import { Category, PRODUCT } from "@/types/product";
+import { default as baseProducts } from "@/lib/data";
 
 export default function SearchBar({
   setProducts,
 }: {
-  setProducts: React.Dispatch<React.SetStateAction<PRODUCT[]>>
+  setProducts: React.Dispatch<React.SetStateAction<PRODUCT[]>>;
 }) {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [category, setCategory] = useState<Category>(Category.ALL)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState<Category>(Category.ALL);
 
-  const handleSearch = (term: string) => {
-    const filteredProducts = baseProducts.filter((product) =>
-      product.title.toLowerCase().includes(term.toLowerCase())
-    )
-    setProducts(filteredProducts)
-  }
+  const filterProducts = useCallback(
+    (term: string, selectedCategory: Category) => {
+      const filteredProducts = baseProducts.filter(
+        (product) =>
+          (selectedCategory === Category.ALL ||
+            product.category === selectedCategory) &&
+          product.title.toLowerCase().includes(term.toLowerCase())
+      );
+      setProducts(filteredProducts);
+    },
+    [setProducts]
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    handleSearch(searchTerm)
-  }
+    e.preventDefault();
+    filterProducts(searchTerm, category);
+  };
+
+  useEffect(() => {
+    const localSeachTerm = localStorage.getItem("searchTerm") ?? "";
+    const localCategory = localStorage.getItem("category") ?? Category.ALL;
+
+    setSearchTerm(localSeachTerm);
+    setCategory(localCategory as Category);
+
+    filterProducts(localSeachTerm, localCategory as Category);
+  }, [filterProducts]);
 
   return (
     <form onSubmit={handleSubmit} className="w-full mx-auto mb-8 px-4">
@@ -39,15 +55,9 @@ export default function SearchBar({
           <Select
             value={category}
             onValueChange={(value) => {
-              setCategory(value as Category)
-              if (value === Category.ALL) {
-                setProducts(baseProducts)
-              } else {
-                const filteredProducts = baseProducts.filter(
-                  (product) => product.category === value
-                )
-                setProducts(filteredProducts)
-              }
+              setCategory(value as Category);
+              localStorage.setItem("category", value);
+              filterProducts(searchTerm, value as Category);
             }}
           >
             <SelectTrigger className="w-full sm:w-[180px]">
@@ -63,12 +73,18 @@ export default function SearchBar({
           </Select>
         </div>
         <div className="relative flex-grow w-full">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" aria-hidden="true" />
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            aria-hidden="true"
+          />
           <Input
             type="search"
             placeholder="Search products..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              localStorage.setItem("searchTerm", e.target.value);
+            }}
             className="w-full pl-10 pr-4 py-2"
             aria-label="Search products"
           />
@@ -78,5 +94,5 @@ export default function SearchBar({
         </Button>
       </div>
     </form>
-  )
+  );
 }
