@@ -3,6 +3,8 @@ import Home from "@pages/Home";
 import CartIcon from "./components/ShoppingCart";
 import Cart from "@pages/Cart";
 import { Link } from "react-router-dom";
+import Signin from "./pages/Signin";
+import Register from "./pages/Register";
 
 export default function App() {
   return (
@@ -11,12 +13,13 @@ export default function App() {
         <Link to="/" className="text-3xl font-bold">
           Welcome to Our Store
         </Link>
-        <h2 className="opacity-20 text-[10px]">Assignemnt: Pulkit CSE-1</h2>
       </div>
       <CartIcon />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Signin />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

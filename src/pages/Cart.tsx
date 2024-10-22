@@ -1,68 +1,72 @@
-import { useState } from "react"
-import { useRecoilState } from "recoil"
-import { cartItemsAtom } from "@/atoms/cart"
-import { Minus, Plus, Trash2, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { cartItemsAtom } from "@/atoms/cart";
+import { Minus, Plus, Trash2, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { motion, AnimatePresence } from "framer-motion"
+} from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { motion, AnimatePresence } from "framer-motion";
 
-import products from "@/lib/data"
+import products from "@/lib/data";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-  const [cartItems, setCartItems] = useRecoilState<string[]>(cartItemsAtom)
-  const [isCheckingOut, setIsCheckingOut] = useState(false)
-  const [checkoutComplete, setCheckoutComplete] = useState(false)
+  const [cartItems, setCartItems] = useRecoilState<string[]>(cartItemsAtom);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutComplete, setCheckoutComplete] = useState(false);
+
+  const navigate = useNavigate();
 
   const cartProducts = products.filter((product) =>
     cartItems.includes(product.id)
-  )
+  );
 
   const updateQuantity = (id: string, change: number) => {
     setCartItems((items) => {
-      const index = items.indexOf(id)
-      if (index === -1) return items
-      const newItems = [...items]
+      const index = items.indexOf(id);
+      if (index === -1) return items;
+      const newItems = [...items];
       if (change > 0) {
-        newItems.push(id)
+        newItems.push(id);
       } else {
-        newItems.splice(index, 1)
+        newItems.splice(index, 1);
       }
-      return newItems
-    })
-  }
+      return newItems;
+    });
+  };
 
   const removeItem = (id: string) => {
-    setCartItems((items) => items.filter((item) => item !== id))
-  }
+    setCartItems((items) => items.filter((item) => item !== id));
+  };
 
   const getQuantity = (id: string) =>
-    cartItems.filter((item) => item === id).length
+    cartItems.filter((item) => item === id).length;
 
   const totalPrice = cartProducts.reduce(
     (sum, product) => sum + product.price * getQuantity(product.id),
     0
-  )
+  );
 
   const handleCheckout = () => {
-    setIsCheckingOut(true)
+    if (!localStorage.getItem("loggedIn")) return navigate("/login");
+    setIsCheckingOut(true);
     // Simulate a checkout process
     setTimeout(() => {
-      setIsCheckingOut(false)
-      setCheckoutComplete(true)
-      setCartItems([]) // Clear the cart
+      setIsCheckingOut(false);
+      setCheckoutComplete(true);
+      setCartItems([]); // Clear the cart
       localStorage.removeItem("cart");
       // Reset the checkout complete state after 3 seconds
-      setTimeout(() => setCheckoutComplete(false), 3000)
-    }, 2000)
-  }
+      setTimeout(() => setCheckoutComplete(false), 3000);
+    }, 2000);
+  };
 
   return (
     <Card className="w-full max-w-3xl mx-auto">
@@ -77,7 +81,7 @@ export default function Cart() {
             </p>
           ) : (
             cartProducts.map((product) => {
-              const quantity = getQuantity(product.id)
+              const quantity = getQuantity(product.id);
               return (
                 <div
                   key={product.id}
@@ -123,7 +127,7 @@ export default function Cart() {
                     </Button>
                   </div>
                 </div>
-              )
+              );
             })
           )}
         </ScrollArea>
@@ -165,5 +169,5 @@ export default function Cart() {
         </AnimatePresence>
       </CardFooter>
     </Card>
-  )
+  );
 }
