@@ -37,7 +37,7 @@ export default function ProductCard({ product }: { product: PRODUCT }) {
         </CardTitle>
         <div className="flex justify-between items-center">
           <span className="text-2xl font-bold">
-            ${product.price.toFixed(2)}
+            ₹{product.price.toFixed(2)}
           </span>
           {product.rating && (
             <div className="flex items-center">
